@@ -1,8 +1,8 @@
 cmake_minimum_required (VERSION 2.8)
-include_directories (${CMAKE_SOURCE_DIR}
-                     ${CMAKE_SOURCE_DIR}/src
-                     ${CMAKE_SOURCE_DIR}/src/commands
-                     ${CMAKE_SOURCE_DIR}/src/columns
+include_directories (${CMAKE_CURRENT_SOURCE_DIR}/../../
+                     ${CMAKE_CURRENT_SOURCE_DIR}/../
+                     ${CMAKE_CURRENT_SOURCE_DIR}/../commands
+                     ${CMAKE_CURRENT_SOURCE_DIR}/../columns
                      ${TASK_INCLUDE_DIRS})
 
 set (columns_SRCS Column.cpp Column.h

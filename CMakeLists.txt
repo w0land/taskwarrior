@@ -95,15 +95,15 @@ SET (TASK_RCDIR "${TASK_DOCDIR}/rc" CACHE STRING "Installation directory for con
 SET (TASK_BINDIR  bin            CACHE STRING "Installation directory for the binary")
 
 message ("-- Looking for SHA1 references")
-if (EXISTS ${CMAKE_SOURCE_DIR}/.git/index)
+if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git/index)
   set (HAVE_COMMIT true)
   execute_process (COMMAND git log -1 --pretty=format:%h
-                   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+                   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
                    OUTPUT_VARIABLE COMMIT)
-  configure_file ( ${CMAKE_SOURCE_DIR}/commit.h.in
-                   ${CMAKE_SOURCE_DIR}/commit.h)
+  configure_file ( ${CMAKE_CURRENT_SOURCE_DIR}/commit.h.in
+                   ${CMAKE_CURRENT_SOURCE_DIR}/commit.h)
   message ("-- Found SHA1 reference: ${COMMIT}")
-endif (EXISTS ${CMAKE_SOURCE_DIR}/.git/index)
+endif (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.git/index)
 
 set (PACKAGE "${PROJECT_NAME}")
 set (VERSION "${PROJECT_VERSION}")
@@ -178,17 +178,17 @@ set (LANGUAGE_JPN_JPN 9)
 
 message ("-- Configuring cmake.h")
 configure_file (
-  ${CMAKE_SOURCE_DIR}/cmake.h.in
-  ${CMAKE_SOURCE_DIR}/cmake.h)
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmake.h.in
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmake.h)
 
 add_subdirectory (src)
 add_subdirectory (src/commands)
 add_subdirectory (src/columns)
 add_subdirectory (doc)
 add_subdirectory (scripts)
-if (EXISTS ${CMAKE_SOURCE_DIR}/test)
+if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/test)
   add_subdirectory (test EXCLUDE_FROM_ALL)
-endif (EXISTS ${CMAKE_SOURCE_DIR}/test)
+endif (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/test)
 if (EXISTS performance)
   add_subdirectory (performance EXCLUDE_FROM_ALL)
 endif (EXISTS performance)
