@@ -1,9 +1,9 @@
 cmake_minimum_required (VERSION 3.0)
-include_directories (${CMAKE_SOURCE_DIR}
-                     ${CMAKE_SOURCE_DIR}/src
-                     ${CMAKE_SOURCE_DIR}/src/commands
-                     ${CMAKE_SOURCE_DIR}/src/columns
-                     ${CMAKE_SOURCE_DIR}/src/libshared/src
+include_directories (${CMAKE_CURRENT_SOURCE_DIR}/../../
+                     ${CMAKE_CURRENT_SOURCE_DIR}/../
+                     ${CMAKE_CURRENT_SOURCE_DIR}
+                     ${CMAKE_CURRENT_SOURCE_DIR}/../columns
+                     ${CMAKE_CURRENT_SOURCE_DIR}/../libshared/src
                      ${TASK_INCLUDE_DIRS})
 
 set (commands_SRCS Command.cpp        Command.h

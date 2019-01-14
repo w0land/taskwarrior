@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.0)
-set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 include (CheckFunctionExists)
 include (CheckStructHasMember)
@@ -42,8 +42,8 @@ if (EXISTS ${CMAKE_SOURCE_DIR}/.git/index)
   execute_process (COMMAND git log -1 --pretty=format:%h
                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
                    OUTPUT_VARIABLE COMMIT)
-  configure_file ( ${CMAKE_SOURCE_DIR}/commit.h.in
-                   ${CMAKE_SOURCE_DIR}/commit.h)
+  configure_file ( ${CMAKE_CURRENT_SOURCE_DIR}/commit.h.in
+                   ${CMAKE_CURRENT_SOURCE_DIR}/commit.h)
   message ("-- Found SHA1 reference: ${COMMIT}")
 endif (EXISTS ${CMAKE_SOURCE_DIR}/.git/index)
 
@@ -134,8 +134,8 @@ endif (SOLARIS)
 
 message ("-- Configuring cmake.h")
 configure_file (
-  ${CMAKE_SOURCE_DIR}/cmake.h.in
-  ${CMAKE_SOURCE_DIR}/cmake.h)
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmake.h.in
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmake.h)
 
 add_subdirectory (src)
 add_subdirectory (src/commands)
